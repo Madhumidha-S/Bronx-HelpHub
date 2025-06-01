@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Bronx HelpHub</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="hero-background">
+  <%- include ('partials/header') %>
+
+  <section class="contact-section">
+    <div class="contact-wrapper">
+      <div class="contact-card">
+        <h2 class="contact-title">Contact Us</h2>
+        <form action="mailto:helphubteam@example.com" method="POST" enctype="text/plain" class="contact-form">
+          <div class="form-control">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-control">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-control">
+            <textarea name="message" placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="neon-btn">Send</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <%- include ('partials/footer') %>
+</body>
+</html>

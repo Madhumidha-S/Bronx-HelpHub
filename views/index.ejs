@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bronx HelpHub</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body class="hero-background">
+  <%- include('partials/header') %>
+
+  <!-- HERO -->
+  <main id="home" class="hero-container">
+    <h1 class="hero-title">Digital solutions for real community needs.</h1>
+    <p class="hero-subtext">Empowering Bronx communities with tech, one click at a time.</p>
+    <button onclick="getLocation()" aria-label="Get my current location">Get My Location</button>
+  </main>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="about-section container section-spacing">
+    <h2 class="section-title">About Bronx HelpHub</h2>
+    <center>
+    <br class="section-text">
+      Bronx HelpHub is a community-driven digital platform dedicated to empowering residents across the Bronx by simplifying access to essential services.
+      Whether you're looking for food distribution points, affordable healthcare, education resources, or job opportunities, our platform connects you with
+      verified, trustworthy organizations and services nearby. We aim to close the information gap using technology, making life-changing community support
+      more visible and more accessible.
+    </br></br>
+      Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos.
+    </p>
+    </center>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section id="features" class="section-spacing features-section container">
+    <h2 class="section-title">Key Features</h2>
+    <div class="features-row">
+      <div class="feature-card"><h3>Local Resource Finder</h3><p>Find trusted services near your neighborhood.</p></div>
+      <div class="feature-card"><h3>Verified Listings</h3><p>All services are reviewed by real users.</p></div>
+      <div class="feature-card"><h3>Quick Access</h3><p>Visit the site and get help—no login needed.</p></div>
+    </div>
+  </section>
+
+  <!-- CATEGORY FILTER SECTION -->
+  <main class="container">
+    <div class="card filter-card">
+      <h2>Find Resources by Category</h2>
+      <label for="category">Filter by Category:</label>
+      <select id="category" name="category">
+        <option value="" selected>-- Select a Category --</option>
+        <option value="food">Food</option>
+        <option value="health">Health</option>
+        <option value="education">Education</option>
+        <option value="jobs">Jobs</option>
+      </select>
+    </div>
+
+    <section id="resource-list" class="resource-list">
+      <p id="no-selection-msg">Select a category above to see available resources.</p>
+    </section>
+  </main>
+
+  <!-- REPORT A NEED SECTION -->
+  <section class="report-section container section-spacing">
+    <h2>Missing Something?</h2>
+    <p>If you're not finding what you need, let us know.</p>
+    <textarea id="userNeed" placeholder="Type what you're looking for..." rows="3"></textarea>
+    <button onclick="submitNeed()">Submit</button>
+  </section>
+
+  <!-- EMERGENCY CONTACTS -->
+  <section class="emergency-section container section-spacing">
+    <h2>Emergency Contacts</h2>
+    <ul>
+      <li>📞 Food Bank Hotline: 123-456-7890</li>
+      <li>🏥 Health Services: 987-654-3210</li>
+      <li>📚 School Support: 555-123-4567</li>
+    </ul>
+  </section>
+
+  <%- include('partials/footer') %>
+
+  <!-- JS Section -->
+  <script>
+    const categorySelect = document.getElementById('category');
+    const resourceList = document.getElementById('resource-list');
+
+    const resources = {
+      food: [
+        { name: 'Bronx Food Bank', description: 'Free food distribution every Tuesday.' },
+        { name: 'Community Pantry', description: 'Open daily for fresh produce.' }
+      ],
+      health: [
+        { name: 'Bronx Health Clinic', description: 'Affordable health checkups.' },
+        { name: 'Mental Wellness Center', description: 'Counseling and support groups.' }
+      ],
+      education: [
+        { name: 'Adult Education Center', description: 'Free GED classes.' },
+        { name: 'After School Tutoring', description: 'Homework help for kids.' }
+      ],
+      jobs: [
+        { name: 'Job Placement Service', description: 'Resume workshops and openings.' },
+        { name: 'Career Counseling', description: 'One-on-one career guidance.' }
+      ]
+    };
+
+    // Category filter logic
+    categorySelect.addEventListener('change', () => {
+      const selected = categorySelect.value;
+      resourceList.innerHTML = '';
+      if (!selected) {
+        resourceList.innerHTML = '<p>Select a category above to see available resources.</p>';
+        return;
+      }
+
+      const items = resources[selected];
+      if (!items || items.length === 0) {
+        resourceList.innerHTML = '<p>No resources found for this category.</p>';
+        return;
+      }
+
+      items.forEach(resource => {
+        const card = document.createElement('div');
+        card.className = 'resource-card';
+        card.innerHTML = `
+          <h3>${resource.name}</h3>
+          <p>${resource.description}</p>
+          <p>Rate this resource:</p>
+          <button onclick="vote('up')">👍</button>
+          <button onclick="vote('down')">👎</button>
+        `;
+        resourceList.appendChild(card);
+      });
+    });
+
+    // Voting system
+    function vote(type) {
+      window.alert(`You voted: ${type}`);
+    }
+
+    // Geolocation logic
+    function getLocation() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const { latitude, longitude } = position.coords;
+            window.alert(`You're located at:\nLatitude: ${latitude}\nLongitude: ${longitude}`);
+            // You could use lat/lng to fetch real nearby data here
+          },
+          (error) => {
+            console.error("Location error:", error);
+            window.alert("Location access denied or unavailable.");
+          }
+        );
+      } else {
+        window.alert("Geolocation is not supported by your browser.");
+      }
+    }
+
+    // Submit need logic
+    function submitNeed() {
+      const userNeed = document.getElementById('userNeed').value.trim();
+      if (!userNeed) {
+        window.alert("Please type what you need.");
+        return;
+      }
+      window.alert(`Thanks! We’ve recorded your request:\n"${userNeed}"`);
+    }
+  </script>
+</body>
+</html>

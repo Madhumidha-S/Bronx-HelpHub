@@ -1,0 +1,428 @@
+/* ===== Global Reset & Font ===== */
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(
+      ellipse at center,
+      rgba(124, 57, 246, 0.12),
+      transparent 70%
+    ),
+    linear-gradient(135deg, #0b0b0f 0%, #10131e 100%);
+  font-family: "DM Sans", sans-serif;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Header/Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 3rem;
+  background-color: #0b0b0f;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ae82ff;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.navbar nav a {
+  margin-left: 2rem;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbar nav a:hover {
+  color: #ae82ff;
+}
+
+/* ===== Hero Section ===== */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 70vh;
+  padding: 4rem 2rem;
+}
+
+.hero-title {
+  font-size: 5.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.hero-subtext {
+  font-size: 1.3rem;
+  color: #cfc9e9;
+  max-width: 650px;
+}
+
+/* ===== Container for Filter + Resources ===== */
+.container {
+  max-width: 900px;
+  margin: 3rem auto 5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* ===== Filter Card ===== */
+.filter-card {
+  background-color: #101014;
+  padding: 5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(124, 57, 246, 0.15);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.filter-card h2 {
+  color: #fff;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+
+.filter-card label {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.filter-card select {
+  padding: 0.75rem 1.25rem;
+  background-color: #1c1c21;
+  color: #ffffff;
+  border: 1px solid #333;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-card select:hover,
+.filter-card select:focus {
+  border-color: #ae82ff;
+}
+
+/* ===== Message below filter ===== */
+#no-selection-msg {
+  text-align: center;
+  color: #b9a9f7;
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* ===== Resource List Section ===== */
+.resource-list {
+  display: grid;
+  gap: 1.8rem;
+}
+
+.resource-card {
+  background-color: #1a1a1e;
+  border: 1px solid #2a2a30;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(124, 57, 246, 0.05);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.resource-card:hover {
+  transform: translateY(-4px);
+}
+
+.resource-card h3 {
+  color: #ae82ff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.resource-card p {
+  margin: 0.3rem 0 0 0;
+  font-size: 0.95rem;
+  color: #d4d4d8;
+}
+
+/* ===== Footer ===== */
+.footer {
+  padding: 2rem;
+  background-color: #0b0b0f;
+  color: #71717a;
+  text-align: center;
+  border-top: 1px solid #27272a;
+  font-size: 0.875rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  background-color: #ae82ff;
+  color: #0b0b0f;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #ae82ff;
+}
+
+/* ===== Contact Page ===== */
+.contact-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  min-height: 70vh;
+}
+
+.contact-wrapper {
+  width: 100%;
+  max-width: 600px;
+}
+
+.contact-card {
+  background-color: #121212;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 0 25px rgba(124, 57, 246, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-control input,
+.form-control textarea {
+  width: 94%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  background: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.form-control textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.neon-btn {
+  background-color: #ae82ff;
+  border: none;
+  padding: 0.75rem;
+  font-weight: bold;
+  font-size: medium;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.neon-btn:hover {
+  background-color: #ae82ff;
+  box-shadow: 0 0 10px #ae82ff, 0 0 20px #ae82ff;
+}
+
+/* ABOUT + FEATURES SECTION */
+.section-title {
+  font-size: 2rem;
+  color: #ae82ff;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section-text {
+  font-size: 1.1rem;
+  color: #ccc;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.7;
+}
+
+.section-spacing {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+/* Features Row Layout */
+.features-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 1.5rem;
+  margin-top: 3rem;
+  flex-wrap: nowrap; /* no wrapping */
+}
+
+.feature-card {
+  background-color: #101014;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 3rem;
+  width: 30%;
+  box-shadow: 0 0 15px rgba(124, 57, 246, 0.05);
+  transition: box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feature-card:hover {
+  box-shadow: 0 0 20px rgba(124, 57, 246, 0.15);
+}
+
+.feature-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  align-content: center;
+}
+
+.feature-card p {
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* Responsive fix: stack on mobile */
+@media screen and (max-width: 900px) {
+  .features-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .feature-card {
+    width: 100%;
+  }
+}
+
+/* Add styles for button in hero section */
+.hero-container button {
+  margin-top: 2rem;
+  padding: 0.85rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #0b0b0f;
+  background-color: #ae82ff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.hero-container button:hover,
+.hero-container button:focus {
+  background-color: #9256e8;
+  outline: none;
+}
+
+/* Report a Need Section */
+.report-section textarea {
+  width: 100%;
+  max-width: 900px;
+  background-color: #1a1a1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #eee;
+  resize: vertical;
+  margin-bottom: 1rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+.report-section button {
+  background-color: #ae82ff;
+  color: #0b0b0f;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.report-section button:hover {
+  background-color: #9256e8;
+}
+
+/* Emergency Contacts Section */
+.emergency-section ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.emergency-section li {
+  background-color: #101014;
+  margin: 0.7rem 0;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(124, 57, 246, 0.1);
+  font-size: 1.1rem;
+  color: #d0c9f8;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Adjust main container spacing (you have two <main> tags, make sure this is consistent in layout) */
+main.container {
+  margin-bottom: 3rem;
+}
+
+/* Responsive tweaks if needed (optional) */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+  .feature-card {
+    width: 100% !important;
+    padding: 2rem !important;
+  }
+  .features-row {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
