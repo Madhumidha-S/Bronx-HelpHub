@@ -6,7 +6,7 @@ A centralised platform connecting Bronx residents to essential local services, s
 ---
 
 ## Project Overview
-Bronx HelpHub is a web application designed to consolidate and streamline access to vital community resources within the Bronx. By aggregating information scattered across multiple channels into a single, user-friendly interface, the platform aims to reduce barriers for vulnerable population,s including low-income families, immigrants, and the elderly.
+Bronx HelpHub is a web application designed to consolidate and streamline access to vital community resources within the Bronx. By aggregating information scattered across multiple channels into a single, user-friendly interface, the platform aims to reduce barriers for a vulnerable population, including low-income families, immigrants, and the elderly.
 
 ---
 
@@ -34,3 +34,6 @@ Residents in the Bronx face significant social challenges, including limited acc
 
 ### Prerequisites
 - Node.js (version 14 or higher)
+
+### Documentation
+For detailed setup instructions and project documentation, please refer to the [Project Documentation](https://docs.google.com/document/d/1LMO3XEovAzKTwveZHve9YATes8Ntea1wopBcr2OhOJI/edit?usp=sharing).
