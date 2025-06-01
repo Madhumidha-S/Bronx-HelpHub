@@ -34,10 +34,3 @@ Residents in the Bronx face significant social challenges, including limited acc
 
 ### Prerequisites
 - Node.js (version 14 or higher)
-
-### Backend Setup
-```bash
-git clone <repository-url>
-cd backend
-npm install
-npm start
